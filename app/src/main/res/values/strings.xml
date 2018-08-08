@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Shared View Model</string>
+
+    <string name="show_input">Your input is </string>
+    <string name="input_hint">Enter a number</string>
+    <string name="result">Result</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
