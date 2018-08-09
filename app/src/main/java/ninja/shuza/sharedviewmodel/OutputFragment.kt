@@ -1,5 +1,7 @@
 package ninja.shuza.sharedviewmodel
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -24,12 +26,22 @@ class OutputFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /**
+         *  create view model in activity scope
+         */
+        activity?.let {
+            val sharedViewModel = ViewModelProviders.of(it).get(SharedViewModel::class.java)
 
+            observeInput(sharedViewModel)
+        }
     }
 
-    fun passDataToAnotherFragment(input: Int) {
-        val message = resources.getString(R.string.result)
-        tv_output.text = "2 x $input  =  ${input*2}"
+    private fun observeInput(sharedViewModel: SharedViewModel) {
+        sharedViewModel.inputNumber.observe(this, Observer {
+            it?.let {
+                tv_output.text = "2 x $it  =  ${2 * it}"
+            }
+        })
     }
 
 }

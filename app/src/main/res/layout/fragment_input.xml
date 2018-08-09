@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/input_hint"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned"
+        android:maxLength="4"
         android:maxLines="1" />
 
 </LinearLayout>
